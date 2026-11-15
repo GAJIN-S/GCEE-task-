@@ -1,136 +1,43 @@
 # ML Sentiment Analysis
 
-This project builds and compares recurrent neural network models for multiclass sentiment classification using a text dataset. The notebook loads a sentiment dataset, preprocesses the text, tunes model hyperparameters, evaluates several architectures, and visualizes the results.
+A machine learning project that compares **RNN, LSTM, and GRU** models for multiclass sentiment analysis.
 
-## Overview
-
-The repository contains a single notebook, `sentiment_analysis.ipynb`, which explores:
-
-- text preprocessing and encoding
-- tokenization with padding
-- hyperparameter tuning using Keras Tuner
-- comparison of RNN, LSTM, and GRU architectures
-- evaluation using accuracy, precision, recall, and macro F1
-- confusion matrices and training/validation plots
-
-## Project Goal
-
-The goal is to classify text into sentiment categories such as:
-
+The models classify text into three categories:
 - Negative
 - Neutral
 - Positive
 
-The model is trained on a publicly available multiclass sentiment dataset and evaluated on a held-out test set.
-
 ## Dataset
 
-The notebook uses the Hugging Face dataset:
-
-- `Sp1786/multiclass-sentiment-analysis-dataset`
-
-It includes text samples and corresponding labels, with three sentiment classes.
-
-## Models Compared
-
-The project experiments with:
-
-- Simple RNN
-- LSTM
-- GRU
-
-Each architecture is tuned with Keras Tuner using a random search strategy, with the objective set to maximize validation macro F1.
+[Multiclass Sentiment Analysis – Hugging Face](https://huggingface.co/datasets/Sp1786/multiclass-sentiment-analysis-dataset)
 
 ## Technologies Used
 
 - Python
 - TensorFlow / Keras
 - Keras Tuner
-- Hugging Face `datasets`
-- scikit-learn
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
+- Hugging Face Datasets
+- Scikit-learn
+- Pandas, NumPy
+- Matplotlib, Seaborn
 
-## Repository Structure
+## Models Compared
 
-```text
-ML/
-├── README.md
-├── sentiment_analysis.ipynb
-└── (generated tuning outputs and model artifacts when run locally)
-```
+- Simple RNN
+- LSTM
+- GRU
 
-## Setup
+Hyperparameter tuning is performed using Keras Tuner with Random Search.
 
-### Option 1: Google Colab
+## Results
 
-This notebook was originally developed in a Colab environment, so it runs well there with minimal setup.
+| Model | Accuracy | Macro F1 |
+|---|---:|---:|
+| RNN | 66.82% | 67.17% |
+| LSTM | 67.82% | 67.86% |
+| **GRU** | **68.26%** | **68.44%** |
 
-### Option 2: Local Python Environment
+**Best Model:** GRU
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/GAJIN-S/ML.git
-cd ML
-```
-
-2. Create and activate a virtual environment (optional but recommended):
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-```
-
-3. Install dependencies:
-
-```bash
-pip install -q datasets tensorflow keras-tuner scikit-learn pandas matplotlib seaborn
-```
-
-4. Open `sentiment_analysis.ipynb` in Jupyter Notebook or VS Code, then run the cells sequentially.
-
-## Usage
-
-Open the notebook and execute the cells in order:
-
-1. install dependencies
-2. import libraries
-3. load the dataset
-4. preprocess text and labels
-5. tokenize and pad sequences
-6. tune models with Keras Tuner
-7. train final models
-8. compare metrics and visualize results
-
-## Example Results
-
-From the notebook run, the best-performing architecture on the test set was:
-
-- GRU: Macro F1 = 0.6844
-- LSTM: Macro F1 = 0.6786
-- RNN: Macro F1 = 0.6717
-
-These numbers reflect the model's multiclass sentiment classification performance on the selected dataset.
-
-## Notes
-
-- The notebook uses a fixed random seed for reproducibility.
-- Early stopping and learning-rate reduction are used to improve generalization.
-- Hyperparameter tuning is designed to optimize validation macro F1, which is especially useful in class-imbalanced classification tasks.
-
-## Future Improvements
-
-Possible next steps for this project include:
-
-- trying transformer-based models such as BERT
-- tuning additional hyperparameters
-- evaluating on a larger balanced dataset
-- adding a simple inference script for real-time sentiment prediction
-- exporting the trained model for deployment
-
-## Contact
-
-This repository appears to be a personal learning project. If you want to extend or improve it, feel free to fork the project and submit your changes.
+entiment classification.
+- Build a sentiment prediction application.
