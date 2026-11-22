@@ -1,4 +1,0 @@
-python-dotenv
-torch
-transformers
-google-genai
